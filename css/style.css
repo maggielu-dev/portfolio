@@ -133,27 +133,94 @@ h1 {
     transition: var(--transition);
 }
 
-/* ===== Hero Section ===== */
+/* ===== Hero Section with Liquid Glass Effect ===== */
 .hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background:
-        radial-gradient(circle at 20% 50%, rgba(74, 26, 44, 0.6) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(93, 46, 140, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
-        linear-gradient(135deg, #2D0C1A 0%, #4A1A2C 50%, #2A1526 100%);
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     position: relative;
     padding: var(--spacing-lg) var(--spacing-md);
     margin-top: 70px;
+    overflow: hidden;
 }
 
+/* Liquid Background Container */
+.liquid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Liquid Blobs - Flowing organic shapes */
+.liquid-blob {
+    position: absolute;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    filter: blur(40px);
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+
+.liquid-blob-1 {
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    left: -10%;
+    background: linear-gradient(135deg, rgba(142, 45, 226, 0.8), rgba(74, 0, 224, 0.6));
+    animation: liquidMove1 20s ease-in-out infinite;
+}
+
+.liquid-blob-2 {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    right: -10%;
+    background: linear-gradient(135deg, rgba(237, 66, 100, 0.7), rgba(255, 143, 112, 0.5));
+    animation: liquidMove2 18s ease-in-out infinite;
+}
+
+.liquid-blob-3 {
+    width: 600px;
+    height: 600px;
+    bottom: -20%;
+    left: 30%;
+    background: linear-gradient(135deg, rgba(67, 233, 123, 0.6), rgba(56, 249, 215, 0.4));
+    animation: liquidMove3 22s ease-in-out infinite;
+}
+
+/* Glass Overlay Effect */
+.glass-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    z-index: 2;
+}
+
+/* Hero Content with Glass Morphism */
 .hero-content {
+    position: relative;
+    z-index: 10;
     text-align: center;
     color: white;
     animation: fadeInUp 1s ease-out;
+    padding: 3rem 2.5rem;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .hero-title {
@@ -185,14 +252,19 @@ h1 {
 }
 
 .btn-primary {
-    background: white;
-    color: var(--primary-color);
-    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
 }
 
 .scroll-indicator {
@@ -204,6 +276,7 @@ h1 {
     color: white;
     opacity: 0.7;
     animation: bounce 2s infinite;
+    z-index: 10;
 }
 
 .scroll-indicator span {
@@ -465,6 +538,60 @@ h1 {
     }
 }
 
+/* Liquid Animation - Organic flowing movement */
+@keyframes liquidMove1 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    }
+    25% {
+        transform: translate(5%, 10%) rotate(90deg) scale(1.1);
+        border-radius: 50% 60% 40% 60% / 60% 40% 60% 40%;
+    }
+    50% {
+        transform: translate(-5%, 15%) rotate(180deg) scale(0.9);
+        border-radius: 60% 40% 60% 40% / 50% 60% 40% 60%;
+    }
+    75% {
+        transform: translate(-10%, 5%) rotate(270deg) scale(1.05);
+        border-radius: 40% 60% 50% 50% / 60% 50% 50% 40%;
+    }
+}
+
+@keyframes liquidMove2 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    33% {
+        transform: translate(-10%, -5%) rotate(120deg) scale(1.15);
+        border-radius: 40% 60% 60% 40% / 50% 60% 40% 50%;
+    }
+    66% {
+        transform: translate(8%, -10%) rotate(240deg) scale(0.85);
+        border-radius: 70% 30% 50% 50% / 40% 60% 50% 60%;
+    }
+}
+
+@keyframes liquidMove3 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        border-radius: 50% 50% 60% 40% / 50% 50% 40% 60%;
+    }
+    30% {
+        transform: translate(-8%, 5%) rotate(100deg) scale(1.08);
+        border-radius: 60% 40% 50% 50% / 60% 40% 60% 40%;
+    }
+    60% {
+        transform: translate(10%, -8%) rotate(200deg) scale(0.95);
+        border-radius: 40% 60% 40% 60% / 50% 50% 60% 40%;
+    }
+    90% {
+        transform: translate(0, 10%) rotate(300deg) scale(1.02);
+        border-radius: 50% 50% 50% 50% / 60% 40% 50% 60%;
+    }
+}
+
 /* ===== Responsive Design ===== */
 @media screen and (max-width: 768px) {
     .nav-links {
@@ -500,12 +627,34 @@ h1 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
+    /* Mobile Liquid Glass Optimization */
     .hero-title {
         font-size: 2.5rem;
     }
 
     .hero-subtitle {
         font-size: 1.25rem;
+    }
+
+    .hero-content {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    /* Scale down liquid blobs for mobile */
+    .liquid-blob-1 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .liquid-blob-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .liquid-blob-3 {
+        width: 350px;
+        height: 350px;
     }
 
     .about-content {
