@@ -167,8 +167,8 @@
 }
 
 .gallery-scatter {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg) 0;
     position: relative;
@@ -177,37 +177,24 @@
 .gallery-scatter .gallery-item {
     transform-origin: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 auto;
+    width: 100%;
 }
 
 .gallery-scatter .gallery-item:hover {
-    transform: scale(1.05) translateY(-10px) !important;
+    transform: translateY(-10px);
     z-index: 10;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Scattered positioning with rotation */
-.scatter-1 {
-    transform: rotate(-3deg) translateY(20px);
-}
-
-.scatter-2 {
-    transform: rotate(2deg) translateY(-15px);
-}
-
-.scatter-3 {
-    transform: rotate(-2deg) translateY(30px);
-}
-
-.scatter-4 {
-    transform: rotate(4deg) translateY(-10px);
-}
-
-.scatter-5 {
-    transform: rotate(-4deg) translateY(25px);
-}
-
+/* Remove rotation - display one per row */
+.scatter-1,
+.scatter-2,
+.scatter-3,
+.scatter-4,
+.scatter-5,
 .scatter-6 {
-    transform: rotate(3deg) translateY(-20px);
+    transform: none;
 }
 
 /* Full Scatter Gallery for 10+ images */
@@ -370,33 +357,17 @@
     }
 
     .gallery-scatter {
-        grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
 
-    /* Adjust rotation angles for mobile */
-    .scatter-1 {
-        transform: rotate(-2deg) translateY(10px);
-    }
-
-    .scatter-2 {
-        transform: rotate(1deg) translateY(-8px);
-    }
-
-    .scatter-3 {
-        transform: rotate(-1deg) translateY(15px);
-    }
-
-    .scatter-4 {
-        transform: rotate(2deg) translateY(-5px);
-    }
-
-    .scatter-5 {
-        transform: rotate(-2deg) translateY(12px);
-    }
-
+    /* Keep one per row on mobile - no rotation */
+    .scatter-1,
+    .scatter-2,
+    .scatter-3,
+    .scatter-4,
+    .scatter-5,
     .scatter-6 {
-        transform: rotate(1.5deg) translateY(-10px);
+        transform: none;
     }
 
     .project-navigation {
@@ -461,20 +432,13 @@
     }
 
 .gallery-scatter .gallery-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1s ease;
-}
-.gallery-scatter .gallery-item.visible {
   opacity: 1;
-  transform: translateY(0);
-  
-}.gallery-item.scatter-5 img {
+  transition: all 0.4s ease;
+}
+.gallery-item.scatter-5 img {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
-  z-index: 1000 !important;
-  transform: none !important;
 }
 
 
