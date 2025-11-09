@@ -194,17 +194,7 @@ h1 {
     text-align: center;
 }
 
-.btn-primary {
-    background: white;
-    color: var(--primary-color);
-    box-shadow: var(--shadow-lg);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
+.btn-primary,
 .btn-secondary {
     background: transparent;
     color: white;
@@ -212,6 +202,7 @@ h1 {
     box-shadow: var(--shadow-md);
 }
 
+.btn-primary:hover,
 .btn-secondary:hover {
     transform: translateY(-3px);
     background: white;
