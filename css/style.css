@@ -97,6 +97,7 @@ h1 {
     height: 50px;
     width: 50px;
     object-fit: contain;
+    mix-blend-mode: darken;
 }
 
 .nav-links {
@@ -170,6 +171,7 @@ h1 {
     font-weight: 800;
     margin-bottom: var(--spacing-sm);
     line-height: 1.2;
+    animation: fadeInUpTitle 1.5s ease-out;
 }
 
 .highlight {
@@ -181,6 +183,9 @@ h1 {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-md);
     opacity: 0.9;
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 /* Hero Buttons Container */
@@ -201,6 +206,8 @@ h1 {
     cursor: pointer;
     min-width: 180px;
     text-align: center;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.125rem;
 }
 
 .btn-primary,
@@ -487,6 +494,17 @@ h1 {
     }
     60% {
         transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeInUpTitle {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
