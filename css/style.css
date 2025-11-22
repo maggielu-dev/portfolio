@@ -588,6 +588,11 @@ h1 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
+    .hero-content {
+        /* Lighter shadow for mobile */
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
