@@ -201,7 +201,8 @@ h1 {
 .hero-content {
     text-align: center;
     color: white;
-    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
     /* Cinematic text shadow for depth */
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 60px rgba(212, 175, 55, 0.2), 0 0 100px rgba(212, 175, 55, 0.1);
 }
@@ -581,7 +582,7 @@ h1 {
         /* Lighter shadow for mobile */
         text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
         /* Faster animation on mobile for better performance */
-        animation: fadeInUp 0.6s ease-out forwards;
+        animation: fadeInUp 0.6s ease-out 0.2s forwards;
     }
 
     .hero-title {
